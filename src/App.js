@@ -9,7 +9,7 @@ import React, { useState, useEffect } from "react";
 //Import components from React Router
 import { Route, Switch, Link } from "react-router-dom";
 
-function App() {
+function App(props) {
   ////////////////////
   // Style Objects
   ////////////////////
@@ -65,6 +65,12 @@ function App() {
     });
 
     getItems();
+  };
+
+  //get item
+  const getTargetItem = (item) => {
+    setTargetItem(item);
+    props.history.push("/edit");
   };
 
   //Function to edit item on form submission

@@ -7,6 +7,10 @@ const Form = ({ initialItem, handleSubmit, buttonLabel, history }) => {
     // Functions
     //////////////////
     const handleChange = (event) => {
+        setFormData({...formData, [event.target.name]: event.target.value });
+    };
+    
+    const handleSubmission = (event) => {
         event.preventDefault();
         handleSubmit(formData);
         history.push("/");
