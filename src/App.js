@@ -19,6 +19,12 @@ function App() {
     margin: "10px"
   };
 
+  const button = {
+    backgroundColor: "navy",
+    display: "block",
+    margin: "auto",
+  };
+
   ///////////////
   // State & Other Variables
   ///////////////
@@ -36,11 +42,8 @@ function App() {
     picture: "",
   };
 
-  const button = {
-    backgroundColor: "navy",
-    display: "block",
-    margin: "auto",
-  };
+  //const state to hold item edit
+  const [targetItem, setTargetItem] = useState(nullItem);
 
   //////////////
   // Functions
@@ -63,6 +66,29 @@ function App() {
 
     getItems();
   };
+
+  //Function to edit item on form submission
+  const updateItem = async (item) => {
+    const response = await fetch(url + item.id + "/", {
+      method: "put",
+      headers: {
+        "Content-Type": "application/jason",
+      },
+      body: JSON.stringify(item),
+    });
+
+    getItems();
+  };
+
+  //delete an item
+  const deleteItem = async (item) => {
+    const response = await fetch(url + item.id + "/", {
+      method: "delete",
+    });
+
+    getItems();
+    props.history.push("/");
+  }
 
   //////////////
   // useEffects
@@ -87,21 +113,35 @@ function App() {
           <Route
             path="/post/:id"
             render={(routerProps) => (
-              <SinglePost {...routerProps} posts={posts} />
+              <SinglePost 
+              {...routerProps} 
+              posts={posts} 
+              edit={getTargetItem}
+              deleteItem={deleteItem}
+              />
             )}
           />
           <Route
             path="/new"
-            render={(routerProps) => <Form 
+            render={(routerProps) => (
+            <Form 
               {...routerProps} 
               initialItem={nullItem}
               handleSubmit={addItems}
               buttonLabel="Create Item"
-            />}
+              />
+            )}
           />
           <Route
             path="/edit"
-            render={(routerProps) => <Form {...routerProps} />}
+            render={(routerProps) => (
+              <Form 
+              {...routerProps} 
+              initialItem={targetItem}
+              handleSubmit={updateItem}
+              buttonLabel="update item"
+              />
+            )}
           />
         </Switch>
       </div>
