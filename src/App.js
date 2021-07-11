@@ -7,7 +7,7 @@ import Form from "./pages/Form"
 import React, { useState, useEffect } from "react";
 
 //Import components from React Router
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 
 function App() {
   ////////////////////
@@ -29,6 +29,19 @@ function App() {
   // State to Hold The List of Posts
   const [posts, setPosts] = useState([]);
 
+  //object for a null item
+  const nullItem = {
+    piece: "",
+    details: "",
+    picture: "",
+  };
+
+  const button = {
+    backgroundColor: "navy",
+    display: "block",
+    margin: "auto",
+  };
+
   //////////////
   // Functions
   //////////////
@@ -37,6 +50,19 @@ function App() {
     const data = await response.json();
     setPosts(data);
   }
+
+  //Adding item from the form data
+  const addItems = async (newItem) => {
+    const response = await fetch(url, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newItem),
+    });
+
+    getItems();
+  };
 
   //////////////
   // useEffects
@@ -51,6 +77,7 @@ function App() {
     return (
       <div>
         <h1 style={h1}>My Closet</h1>
+        <Link to ="/new"><button style={button}>Create New Item</button></Link>
         <Switch>
           <Route
             exact 
@@ -65,7 +92,12 @@ function App() {
           />
           <Route
             path="/new"
-            render={(routerProps) => <Form {...routerProps} />}
+            render={(routerProps) => <Form 
+              {...routerProps} 
+              initialItem={nullItem}
+              handleSubmit={addItems}
+              buttonLabel="Create Item"
+            />}
           />
           <Route
             path="/edit"

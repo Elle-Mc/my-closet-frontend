@@ -1,7 +1,41 @@
-import React from "react";
+import React , { useState } from "react";
 
-const Form = (props) => {
-  return <h1>Form</h1>;
+const Form = ({ initialItem, handleSubmit, buttonLabel, history }) => {
+    const [formData, setFormData] = useState(initialItem)
+
+    //////////////////
+    // Functions
+    //////////////////
+    const handleChange = (event) => {
+        event.preventDefault();
+        handleSubmit(formData);
+        history.push("/");
+    };
+
+    //Form
+    return (
+        <form onSubmit={handleSubmission}>
+            <input
+                type="text"
+                onChange={handleChange}
+                value={formData.piece}
+                name="piece"
+            />
+            <input 
+                type="text"
+                onChange={handleChange}
+                value={formData.details}
+                name="details"
+            />
+            <input 
+                type="text"
+                onChange={handleChange}
+                value={formData.picture}
+                name="picture"
+            />
+            <input type="submit" value={buttonLabel} />
+        </form>
+    );
 };
 
 export default Form;
