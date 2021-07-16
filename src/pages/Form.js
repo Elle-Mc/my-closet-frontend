@@ -23,18 +23,21 @@ const Form = ({ initialItem, handleSubmit, buttonLabel, history }) => {
                 type="text"
                 onChange={handleChange}
                 value={formData.piece}
+                placeholder="piece"
                 name="piece"
             />
             <input 
                 type="text"
                 onChange={handleChange}
                 value={formData.details}
+                placeholder="details"
                 name="details"
             />
             <input 
                 type="text"
                 onChange={handleChange}
                 value={formData.picture}
+                placeholder="picture"
                 name="picture"
             />
             <input type="submit" value={buttonLabel} />

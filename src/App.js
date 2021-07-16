@@ -116,7 +116,7 @@ function App(props) {
           <Route
             exact 
             path="/"
-            render={(routerProps) => <AllPosts {...routerProps} posts={posts} />}
+            render={(routerProps) => <AllPosts posts={posts} {...routerProps} />}
           />
           <Route
             path="/post/:id"
