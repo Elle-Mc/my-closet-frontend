@@ -31,7 +31,7 @@ function App(props) {
   ///////////////
 
   // Our Api Url
-  const url = "https://my-closet-emc.herokuapp.com/items";
+  const url = "https://my-closet-emc.herokuapp.com/items/";
 
   // State to Hold The List of Posts
   const [posts, setPosts] = useState([]);
