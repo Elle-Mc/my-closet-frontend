@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../Navbar";
 
 const SinglePost = ({ posts, match, edit, deleteItem }) => {
     const id = parseInt(match.params.id); 
@@ -17,6 +18,7 @@ const SinglePost = ({ posts, match, edit, deleteItem }) => {
 
     return (
         <div style={div}>
+            <Navbar/>
             <h1>{post.piece}</h1>
             <h2>{post.details}</h2>
             <h2>{post.picture}</h2>

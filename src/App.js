@@ -1,7 +1,8 @@
 //Import all components
 import AllPosts from "./pages/AllPosts";
 import SinglePost from "./pages/SinglePost";
-import Form from "./pages/Form"
+import Form from "./pages/Form";
+import Navbar from "./Navbar"
 
 //Import react and hooks
 import React, { useState, useEffect } from "react";
@@ -107,7 +108,8 @@ function App(props) {
   // returned JSX
   /////////////////////
     return (
-      <div>
+      <div className="App">
+        <Navbar/>
         <h1 style={h1}>My Closet</h1>
         <Link to ="/new"><button style={button}>Create New Item</button></Link>
         <Switch>
