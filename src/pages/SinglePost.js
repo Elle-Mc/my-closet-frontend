@@ -24,7 +24,7 @@ const SinglePost = ({ posts, match, edit, deleteItem, history }) => {
             <h2>{post.details}</h2>
             <img src={post.picture} alt="" />
             <button onClick={(event) => edit(post)}>Edit</button>
-            <button onClick={(event) => deleteItem(post)}>Delete</button>
+            <button onClick={(event) => deleteItem(post)}>Delete</button><br></br>
             <Link to="/">
                 <button>Back to all my items</button>
             </Link>
