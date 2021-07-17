@@ -13,7 +13,7 @@ const SinglePost = ({ posts, match, edit, deleteItem, history }) => {
     //////////////////
     const div = {
         textAlign: "center",
-        border: "3px solid green",
+        border: "3px blue",
         width: "80%",
         margin: "30px auto",
     };
@@ -22,7 +22,7 @@ const SinglePost = ({ posts, match, edit, deleteItem, history }) => {
         <div style={div}>
             <h1>{post.piece}</h1>
             <h2>{post.details}</h2>
-            <img src={post.image} alt={post.name} />
+            <img src={post.picture} alt="" />
             <button onClick={(event) => edit(post)}>Edit</button>
             <button onClick={(event) => deleteItem(post)}>Delete</button>
             <Link to="/">

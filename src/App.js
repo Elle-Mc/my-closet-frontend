@@ -114,7 +114,7 @@ function App(props) {
       <div className="App">
         <Navbar/>
         <h1 style={h1}>My Closet</h1>
-        <Link to ="/new"><button style={button}>Create New Item</button></Link>
+        <div class="center"><Link to ="/new"><button class="blue-grey lighten-4 btn waves-effect waves-light" type="submit" name="action">Create new item<i class="material-icons right"></i></button></Link></div>
         <Switch>
           <Route
             exact 
