@@ -2,7 +2,8 @@
 import AllPosts from "./pages/AllPosts";
 import SinglePost from "./pages/SinglePost";
 import Form from "./pages/Form";
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 //Import react and hooks
 import React, { useState, useEffect } from "react";
@@ -17,14 +18,16 @@ function App(props) {
 
   const h1 = {
     textAlign: "center",
-    margin: "10px"
+    margin: "15px",
+    color: "blue-grey lighten-1"
   };
 
   const button = {
-    backgroundColor: "navy",
+    backgroundColor: "blue-grey lighten-4",
     display: "block",
     margin: "auto",
   };
+
 
   ///////////////
   // State & Other Variables
@@ -152,6 +155,7 @@ function App(props) {
             )}
           />
         </Switch>
+        <Footer />
       </div>
     )
 }

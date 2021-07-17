@@ -11,12 +11,14 @@ const Post = ({ post }) => {
         margin: "10px auto",
         width: "80%"
     };
+
     return (
         <div style={div}>
             <Link to={`/post/${post.id}`}>
+                <h1>{post.piece}</h1>
             </Link>
             <h2>{post.details}</h2>
-            <h2>{post.picture}</h2>
+            <img src={post.picture} alt="" />
         </div>
     )
 };

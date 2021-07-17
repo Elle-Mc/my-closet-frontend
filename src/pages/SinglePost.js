@@ -20,7 +20,6 @@ const SinglePost = ({ posts, match, edit, deleteItem, history }) => {
 
     return (
         <div style={div}>
-            <Navbar/>
             <h1>{post.piece}</h1>
             <h2>{post.details}</h2>
             <img src={post.image} alt={post.name} />
